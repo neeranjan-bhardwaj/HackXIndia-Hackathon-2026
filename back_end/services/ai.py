@@ -1,7 +1,8 @@
 from google import genai
 from pydantic import BaseModel,Field
+from Config.config import setting
 
-clint=genai.Client(api_key='AIzaSyB6wuf1dpQC1rkooUVBfnjIvfPcIHgeUDo')
+clint=genai.Client(api_key=setting.ai_key_google)
 
 class Ai_output(BaseModel):
     message:str
