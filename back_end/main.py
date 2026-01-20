@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from services.ai import Ai_response
+from pydantic import BaseModel
+
+class Boady(BaseModel):
+    prompt:str
 
 app=FastAPI()
 
@@ -16,6 +20,6 @@ app.add_middleware(
     allow_headers=["*"],            
 )
 
-@app.get("/")
-def test():
-    return Ai_response()
+@app.post("/")
+def test(boady:Boady):
+    return Ai_response(boady.prompt)

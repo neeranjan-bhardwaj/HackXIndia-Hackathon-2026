@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    ai_key_google:str
+    ai_api_key:str
 
     class Config:
         env_file=".env"
