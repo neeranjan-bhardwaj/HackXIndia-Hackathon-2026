@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from services.ai import Ai_response
 
 app=FastAPI()
 
@@ -17,4 +18,4 @@ app.add_middleware(
 
 @app.get("/")
 def test():
-    return "Hell from server"
+    return Ai_response()
